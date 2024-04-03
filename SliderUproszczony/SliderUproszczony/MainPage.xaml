@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SliderUproszczony.MainPage">
+
+    <ContentPage Title="Your Pictures">
+        <StackLayout>
+            <CarouselView x:Name="imageCarousel"
+                          Margin="0,80,0,0">
+                <CarouselView.ItemTemplate>
+                    <DataTemplate>
+                        <StackLayout>
+                            <Grid>
+                                <Frame Padding="0" 
+                                       BorderColor="White" 
+                                       CornerRadius="20">
+                                    <StackLayout>
+                                        <Label Text="{Binding ImageName}"
+                                               HorizontalTextAlignment="Center"
+                                               FontSize="20"
+                                               TextColor="Black"
+                                        />
+                                        <Image Source="{Binding ImageSource}" 
+                                               HeightRequest="500" 
+                                               Aspect="AspectFit"
+                                               Margin="0"
+                                               />
+                                    </StackLayout>
+                                </Frame>
+                            </Grid>
+
+                            <Frame Padding="0" 
+                                   BackgroundColor="Transparent" 
+                                   Margin="20">
+
+                                <Button TextColor="Red" 
+                                        BorderColor="Red" 
+                                        BackgroundColor="White" 
+                                        BorderWidth="3" 
+                                        CornerRadius="90" 
+                                        Text="Delete Image"
+                                        Clicked="RemoveImage"
+                                        />
+                            </Frame>
+
+                        </StackLayout>
+                    </DataTemplate>
+                </CarouselView.ItemTemplate>
+            </CarouselView>
+
+            <Button x:Name="toggleButton" 
+                    Text="Stop Auto Slide"
+                    TextColor="Red" 
+                    BorderColor="Red" 
+                    BackgroundColor="White" 
+                    BorderWidth="3" 
+                    CornerRadius="90" 
+                    Clicked="OnToggleButtonClicked"
+                    />
+        </StackLayout>
+    </ContentPage>
+
+    <ContentPage Title="Add Picture">
+        <StackLayout Margin="0"
+                     Padding="0">
+            <Label Text="Add Image"
+                   HorizontalTextAlignment="Center"
+                   FontSize="20"
+                   TextColor="Black"/>
+            <Entry Placeholder="ImageSource" 
+                   x:Name="ImageSourceEntry"
+                   HorizontalTextAlignment="Center"
+                   Margin="20"
+                    />
+            <Entry Placeholder="ImageName"
+                   x:Name="ImageNameEntry"
+                   HorizontalTextAlignment="Center"
+                   Margin="20"
+                   />
+            <Button Text="Submit"
+                    TextColor="Red" 
+                    BorderColor="Red" 
+                    BackgroundColor="White" 
+                    BorderWidth="3" 
+                    CornerRadius="90"
+                    Clicked="AddImage"
+                    />
+        </StackLayout>
+    </ContentPage>
+
+</TabbedPage>
